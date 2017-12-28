@@ -1,5 +1,7 @@
 build/*
-target/*
+api/target/*
+api/.idea/*
+client/target/*
 *.class
 .settings
 .metadeta
