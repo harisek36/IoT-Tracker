@@ -38,7 +38,9 @@ public class JPAconfig {
     public DataSource getDataSource(){
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        ds.setSchema("CREATE SCHEMA `iot-tracker`;");
         ds.setUrl("jdbc:mysql://localhost:3306/iot-tracker?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+
         ds.setUsername("root");
         ds.setPassword("password");
 

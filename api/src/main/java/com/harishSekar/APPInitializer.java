@@ -12,6 +12,6 @@ public class APPInitializer extends AbstractAnnotationConfigDispatcherServletIni
     }
 
     protected String[] getServletMappings() {
-        return new String[]{"/api/*"};
+        return new String[]{"/*"};
     }
 }

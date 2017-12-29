@@ -11,13 +11,11 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/readings")   // 'path' variable can be used instead of 'value'
+@RequestMapping(value = "/readings")
 public class ReadingController {
 
     @Autowired
     ReadingsServiceModel readingsServiceModel;
-
-
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Readings> findReadings(){
@@ -27,9 +25,7 @@ public class ReadingController {
     @RequestMapping(method = RequestMethod.GET,value = "/id={readingID}")
     public Readings findReadingById(@PathVariable("readingID") String ID){
         return readingsServiceModel.findReadingById(ID);
-
     }
-
 
     @RequestMapping(method = RequestMethod.POST)
     public String postReading(@RequestBody Readings reading) {

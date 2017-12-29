@@ -2,6 +2,7 @@ package com.harishSekar.services;
 
 import com.harishSekar.Repository.VehicleRepositoryModel;
 import com.harishSekar.entity.Vehicle;
+import com.harishSekar.exceptions.BadRequestException;
 import com.harishSekar.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,7 +48,7 @@ public class VechileService implements VehicleServiceModel {
     public Vehicle updateVehicle(String vin, Vehicle vehicle) {
         Vehicle vehicle_existing = vehicleRepository.findVehicleById(vin);
         if(vehicle_existing == null){
-            // throw 404
+            throw new ResourceNotFoundException("Vehicle with VIN: "+vin +" does't exist");
         }
         return vehicleRepository.updateVehicle(vehicle);
     }
@@ -56,7 +57,7 @@ public class VechileService implements VehicleServiceModel {
     public void deleteVehicle(String vin) {
         Vehicle vehicle_ = vehicleRepository.findVehicleById(vin);
         if(vehicle_ == null){
-            // throw 400
+            throw new BadRequestException("Invalid Vin number");
         }
         vehicleRepository.deleteVehicle(vehicle_);
     }
