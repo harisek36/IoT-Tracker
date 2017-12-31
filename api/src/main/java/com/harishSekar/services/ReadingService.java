@@ -10,12 +10,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 import javax.swing.*;
 import java.util.List;
+
+
 
 @Service
 
 public class ReadingService implements ReadingsServiceModel {
+
+    public enum Level {
+        HIGH,
+        MEDIUM,
+        LOW
+    }
 
     /*
     Create alerts with given priority when following rules are triggered
@@ -54,25 +64,26 @@ public class ReadingService implements ReadingsServiceModel {
             // Rule: engineRpm > readlineRpm, Priority: HIGH
 
             if(reading.getEngineRpm() > vehicle_existing.getRedlineRpm()){
-                JOptionPane.showMessageDialog(null, "Priority: HIGH, engineRpm > readlineRpm");
+//                JOptionPane.showMessageDialog(null, "Priority: HIGH, engineRpm > readlineRpm");
+
 
             }
 
             // Rule: fuelVolume < 10% of maxFuelVolume, Priority: MEDIUM
             if(reading.getFuelVolume() < (0.1 * vehicle_existing.getMaxFuelVolume())){
-                JOptionPane.showMessageDialog(null, "Priority: MEDIUM, Fuel less the 10% !!");
+//                JOptionPane.showMessageDialog(null, "Priority: MEDIUM, Fuel less the 10% !!");
 
             }
             // Rule: tire pressure of any tire < 32psi || > 36psi , Priority: LOW
 
             if((reading.getFrontLeft() + reading.getFrontRight() + reading.getRearLeft()+ reading.getRearRight()) < 124 ||
                     ((reading.getFrontLeft() + reading.getFrontRight() + reading.getRearLeft()+ reading.getRearRight())>124)){
-                JOptionPane.showMessageDialog(null, "Priority: LOW, Check tire Pressure !!");
+//                JOptionPane.showMessageDialog(null, "Priority: LOW, Check tire Pressure !!");
 
             }
             // Rule: engineCoolantLow = true || checkEngineLightOn = true, Priority: LOW
             if(reading.isCheckEngineLightOn() || reading.isCheckEngineLightOn()){
-                JOptionPane.showMessageDialog(null, "Priority: LOW, Service Engine !!");
+//                JOptionPane.showMessageDialog(null, "Priority: LOW, Service Engine !!");
 
             }
 

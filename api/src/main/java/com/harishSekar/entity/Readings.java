@@ -2,10 +2,7 @@ package com.harishSekar.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.util.Map;
 import java.util.UUID;
 
@@ -16,6 +13,7 @@ public class Readings {
 
         @Id
         String readingID;
+//        @ManyToOne
         String vin;
         double latitude;
         double longitude;

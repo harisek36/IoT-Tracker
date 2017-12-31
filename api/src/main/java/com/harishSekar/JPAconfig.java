@@ -23,11 +23,12 @@ public class JPAconfig {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(getDataSource());
         emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        emf.setPackagesToScan("com.harishSekar");
+        emf.setPackagesToScan("com.harishSekar.entity");
 
         Properties properties = new Properties();
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
-        properties.put("hibernate.hbm2ddl.auto", "create");
+        properties.put("hibernate.hbm2ddl.auto", "create-drop");
+
         properties.put("hibernate.show_sql", "true");
         emf.setJpaProperties(properties);
 
@@ -38,11 +39,16 @@ public class JPAconfig {
     public DataSource getDataSource(){
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-//        ds.setSchema("CREATE SCHEMA `iot-tracker`;");
-        ds.setUrl("jdbc:mysql://localhost:3306/iot-tracker?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+//        ds.setSchema("CREATE SCHEMA `tracker`;");
+//        ds.setUrl("jdbc:mysql://localhost:3306/iot-tracker?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 
+        ds.setUrl("jdbc:mysql://localhost:3306/tracker?useSSL=false");
+        //&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+//        ds.setSchema("CREATE SCHEMA `iot-tracker`;");
+//        ds.getSchema();
         ds.setUsername("root");
         ds.setPassword("password");
+
 
         return ds;
     }
