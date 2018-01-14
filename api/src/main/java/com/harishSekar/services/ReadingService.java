@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.swing.*;
 import java.util.List;
 
@@ -64,7 +62,7 @@ public class ReadingService implements ReadingsServiceModel {
             // Rule: engineRpm > readlineRpm, Priority: HIGH
 
             if(reading.getEngineRpm() > vehicle_existing.getRedlineRpm()){
-//                JOptionPane.showMessageDialog(null, "Priority: HIGH, engineRpm > readlineRpm");
+                JOptionPane.showMessageDialog(null, Level.HIGH+"engineRpm > readlineRpm");
 
 
             }
