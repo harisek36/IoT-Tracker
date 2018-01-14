@@ -24,6 +24,11 @@ public class ReadingsRepository implements ReadingsRepositoryModel {
          return entityManager.find(Readings.class,ID) ;
     }
 
+
+    public List<Readings> findReadingByVin(String vin) {
+        return entityManager.createNamedQuery("Readings.findbyVin",Readings.class).setParameter("vin",vin).getResultList();
+    }
+
     public String postReading(Readings reading) {
         entityManager.merge(reading);
         return reading.getReadingID()+" -> Posted in DB ";

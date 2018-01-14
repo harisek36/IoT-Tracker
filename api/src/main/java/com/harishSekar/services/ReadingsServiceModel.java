@@ -9,5 +9,7 @@ public interface ReadingsServiceModel {
 
     public Readings findReadingById(String ID);
 
+    public List<Readings> findReadingByVin(String ID);
+
     public String postReading(Readings reading);
 }

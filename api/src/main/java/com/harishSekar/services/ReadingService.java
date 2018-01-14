@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.swing.*;
 import java.util.List;
 
 
@@ -52,6 +51,15 @@ public class ReadingService implements ReadingsServiceModel {
         return foundReading;
     }
 
+    @Transactional(readOnly = true)
+    public List<Readings> findReadingByVin(String vin) {
+        List<Readings> foundVinReading = readingsRepositoryModel.findReadingByVin(vin);
+        if(foundVinReading == null){
+            throw new BadRequestException("Invalid Reading ID");
+        }
+        return foundVinReading;
+    }
+
     @Transactional
     public String postReading(Readings reading) {
         Vehicle vehicle_existing = vehicleRepository.findVehicleById(reading.getVin());
@@ -62,7 +70,7 @@ public class ReadingService implements ReadingsServiceModel {
             // Rule: engineRpm > readlineRpm, Priority: HIGH
 
             if(reading.getEngineRpm() > vehicle_existing.getRedlineRpm()){
-                JOptionPane.showMessageDialog(null, Level.HIGH+"engineRpm > readlineRpm");
+//                JOptionPane.showMessageDialog(null, Level.HIGH+"engineRpm > readlineRpm");
 
 
             }

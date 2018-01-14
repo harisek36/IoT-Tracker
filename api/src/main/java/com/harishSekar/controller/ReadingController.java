@@ -27,6 +27,11 @@ public class ReadingController {
         return readingsServiceModel.findReadingById(ID);
     }
 
+    @RequestMapping(method = RequestMethod.GET,value = "/vin={vinID}")
+    public List<Readings> findReadingByVin(@PathVariable("vinID") String vin){
+        return readingsServiceModel.findReadingByVin(vin);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public String postReading(@RequestBody Readings reading) {
 

@@ -9,6 +9,8 @@ public interface ReadingsRepositoryModel {
     public List<Readings> findReadings();
 
     public Readings findReadingById(String ID);
+    public List<Readings> findReadingByVin(String vin);
+
 
     public String postReading(Readings reading);
 }
