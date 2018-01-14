@@ -20,11 +20,7 @@ export class VehicleService {
 
   /** GET Vehicles from the server */
   getHeroes (): Observable<VehicleFormat[]> {
-    return this.http.get<VehicleFormat[]>(this.Vehicle_URL)
-      .pipe(
-        tap(heroes => this.log(`fetched heroes`)),
-        catchError(this.handleError('getHeroes', []))
-      );
+    return this.http.get<VehicleFormat[]>(this.Vehicle_URL);
   }
 
 }

@@ -9,18 +9,22 @@ import {VehicleService} from './vehicle.service';
 import {ReadingService} from './reading.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     VehicleComponent,
-    ReadingComponent
+    ReadingComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [VehicleService, ReadingService],
   bootstrap: [AppComponent]
