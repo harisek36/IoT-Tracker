@@ -20,11 +20,11 @@ export class ReadingService {
   constructor(private http: HttpClient) { }
 
   /** GET Vehicles from the server */
-  getHeroes (): Observable<ReadingFormat[]> {
+  getAllReadings (): Observable<ReadingFormat[]> {
     return this.http.get<ReadingFormat[]>(this.Reading_URL);
   }
 
-  getHeroesByVin(vin: string): Observable<ReadingFormat[]> {
+  getReadingByVin(vin: string): Observable<ReadingFormat[]> {
     console.log(vin);
     const ReadingByVin_URL = `${this.Reading_URL}/vin=${vin}`;
     return this.http.get<ReadingFormat[]>(ReadingByVin_URL);
