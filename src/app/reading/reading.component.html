@@ -1,0 +1,38 @@
+<h1><span class="blue">&lt;</span>Car Tracker<span class="blue">&gt;</span> <span class="yellow"> IoT</span></h1>
+
+
+<!--<p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>-->
+
+<div *ngIf="readingsByVin">
+
+  <h2 > Readings for Vehicle with VIN: <span class="yellow">{{vehicleWithVin.vin}}</span></h2>
+
+  <table class="container">
+    <thead>
+    <tr>
+
+      <th><h1>fuelVolume</h1></th>
+      <th><h1>speed</h1></th>
+      <th><h1>engineHp</h1></th>
+      <th><h1>checkEngOn</h1></th>
+      <th><h1>CoolantLow</h1></th>
+      <th><h1>cruiseControlOn</h1></th>
+      <th><h1>engineRpm</h1></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let reading of readingsByVin">
+      <td>{{reading.fuelVolume}}</td><td>{{reading.speed}}</td> <td>{{reading.engineHp}}</td>
+      <td>{{reading.checkEngineLightOn}}</td> <td>{{reading.engineCoolantLow}}</td><td>{{reading.cruiseControlOn}}</td>
+      <td>{{reading.engineRpm}}</td><td routerLink="/maps/{{reading.latitude}}/{{reading.longitude}}">
+
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
+
+
