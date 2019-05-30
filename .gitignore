@@ -1,0 +1,8 @@
+build/*
+api/target/*
+api/.idea/*
+client/target/*
+*.class
+.settings
+.metadeta
+api/IoT-VehicleTracker.iml
